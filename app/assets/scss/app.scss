@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+@import "colors";
+@import "~bulmaswatch/darkly/variables";
+@import "~bulma/bulma";
+@import "~bulmaswatch/darkly/overrides";
+
+html {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  //font-family: -apple-system, 'BlinkMacSystemFont', Sans-Serif;
+}
+
+img {
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -webkit-touch-callout: none;
+}

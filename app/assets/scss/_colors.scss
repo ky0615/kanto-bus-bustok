@@ -1,0 +1,27 @@
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
+
+$facebook: #3B5998;
+$facebook-invert: findColorInvert($facebook);
+
+$twitter: #55acee;
+$twitter-invert: findColorInvert($twitter);
+
+$github: #333;
+$github-invert: findColorInvert($github);
+
+$google: #dd4b39;
+$google-invert: findColorInvert($google);
+
+$line: #00c300;
+$line-invert: findColorInvert($line);
+
+@import "~bulma/sass/utilities/derived-variables.sass";
+$addColors: (
+  "twitter":($twitter, $twitter-invert),
+  "facebook": ($facebook, $facebook-invert),
+  "github": ($github, $github-invert),
+  "google": ($google, $google-invert),
+  "line": ($line, $line-invert)
+);
+$colors: map-merge($colors, $addColors);
