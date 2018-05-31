@@ -68,5 +68,12 @@ module.exports = {
 
   css: [
     { src: '~assets/scss/app.scss', lang: 'scss' }
+  ],
+
+  modules: [
+    // Simple usage
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-26824920-4'
+    }]
   ]
 }
