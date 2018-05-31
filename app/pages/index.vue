@@ -15,38 +15,38 @@
         <div class="column is-two-fifths">
 
           <div class="field">
-            <div class="field-label is-small">
+            <div class="field-label">
               <label class="label" for="oneWayRate">片道料金</label>
             </div>
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input class="input is-small" type="number" min="0" max="9000" step="10" name="oneWayRate" id="oneWayRate" v-model="oneWayRate">
+                  <input class="input" type="number" min="0" max="9000" step="10" name="oneWayRate" id="oneWayRate" v-model="oneWayRate">
                 </div>
               </div>
             </div>
           </div>
 
           <div class="field">
-            <div class="field-label is-small">
+            <div class="field-label">
               <label class="label" for="rideMonth">一ヶ月に乗る日数</label>
             </div>
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input class="input is-small" type="number" min="0" max="100" step="1" name="rideMonth" id="rideMonth" v-model="rideMonth">
+                  <input class="input" type="number" min="0" max="100" step="1" name="rideMonth" id="rideMonth" v-model="rideMonth">
                 </div>
               </div>
             </div>
           </div>
 
           <div class="field">
-            <div class="field-label is-small">
+            <div class="field-label">
               <label class="label" for="selectCategoryType">定期使用者</label>
             </div>
             <div class="field-body">
               <div class="control">
-                <div class="select is-small">
+                <div class="select">
                   <select v-model="selectPassType" id="selectCategoryType">
                     <option v-for="pt in passType" :key="pt.index" :value="pt.index">{{pt.name}}</option>
                   </select>
@@ -56,12 +56,12 @@
           </div>
 
           <div class="field">
-            <div class="field-label is-small">
+            <div class="field-label">
               <label class="label" for="passType">定期の種別</label>
             </div>
             <div class="field-body">
               <div class="control">
-                <div class="select is-small">
+                <div class="select">
                   <select v-model="selectCategoryType" id="passType">
                     <option v-for="pt in categoryType" :key="pt.index" :value="pt.index">{{pt.name}}</option>
                   </select>
@@ -71,12 +71,12 @@
           </div>
 
           <div class="field">
-            <div class="field-label is-small">
+            <div class="field-label">
               <label class="label" for="selectPeriodType">定期の期間</label>
             </div>
             <div class="field-body">
               <div class="control">
-                <div class="select is-small">
+                <div class="select">
                   <select v-model="selectPeriodType" id="selectPeriodType">
                     <option v-for="pt in periodType" :key="pt.index" :value="pt.index">{{pt.name}}</option>
                   </select>
@@ -108,14 +108,14 @@
             <tr>
               <th>バス得との差額</th>
               <td>
-                <span v-if="tokApplySum-calcPass<0">△</span>
-                {{Math.abs(tokApplySum-calcPass)}}円
+                <span v-if="diffPass<0">△</span>
+                {{Math.abs(diffPass)}}円
               </td>
             </tr>
             <tr>
               <th>判定</th>
               <td>
-                <span v-if="tokApplySum-calcPass<0">バス特使用の方がお得</span>
+                <span v-if="diffPass<0">バス特使用の方がお得</span>
                 <span v-else>定期使用の方がお得</span>
               </td>
             </tr>
@@ -125,12 +125,19 @@
     </div>
 
     <div class="section">
-      <h2>注意</h2>
       <div class="box">
-        <div class="content is-small">
+        <h2 class="title is-3">注意</h2>
+        <div class="content">
           <p>・2018/05/31現在の情報です。最新の情報は関東バスのHPを参照してください。</p>
           <p>・<a href="https://www.kanto-bus.co.jp/regular/pasmo.html#pointSec">バス特典チケットの計算方法(関東バスHP)</a></p>
           <p>・<a href="https://www.kanto-bus.co.jp/regular/pass.html">定期券について(関東バスHP)</a></p>
+        </div>
+      </div>
+
+      <div class="box">
+        <h2 class="title is-3">更新履歴</h2>
+        <div class="content">
+          <p>2018/06/01: なんとなく公開</p>
         </div>
       </div>
     </div>
@@ -212,6 +219,15 @@ export default {
 
     calcPass () {
       return this.pass[this.selectCategoryType][this.selectPeriodType][this.selectPassType]
+    },
+
+    diffPass () {
+      if (this.selectPeriodType === 1) {
+        // 3ヶ月の計算はバス特も三倍する
+        return this.tokApplySum * 3 - this.calcPass
+      } else {
+        return this.tokApplySum - this.calcPass
+      }
     }
   }
 }
