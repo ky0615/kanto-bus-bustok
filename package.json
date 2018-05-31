@@ -16,7 +16,8 @@
     "sls:deploy": "sls deploy",
     "deploy": "cross-env ENDPOINT_ENV=cf run-s build sls:deploy",
     "deploy:api_gw": "cross-env ENDPOINT_ENV=api_gw run-s build sls:deploy",
-    "deploy:gh": "push-dir --dir=dist --branch=gh-pages --cleanup",
+    "generate:gh-pages": "cross-env BASE_URL=\"/kanto-bus-bustok\" nuxt generate",
+    "deploy:gh-pages": "cross-env BASE_URL=\"/kanto-bus-bustok\" push-dir --dir=dist --branch=gh-pages --cleanup",
     "delete": "sls remove"
   },
   "dependencies": {

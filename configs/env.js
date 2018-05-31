@@ -1,10 +1,11 @@
 'use strict'
 
 const endpointEnv = process.env.ENDPOINT_ENV || 'cf'
+const baseUrl = process.env.BASE_URL || '/'
 
 const ENV = {
   STAGE: 'dev',
-  BASE_URL: '/',
+  BASE_URL: baseUrl,
   ENDPOINT_ENV: endpointEnv
 }
 
