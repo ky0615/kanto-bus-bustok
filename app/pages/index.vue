@@ -129,8 +129,10 @@
         <h2 class="title is-3">注意</h2>
         <div class="content">
           <p>・2018/05/31現在の情報です。最新の情報は関東バスのHPを参照してください。</p>
-          <p>・<a href="https://www.kanto-bus.co.jp/regular/pasmo.html#pointSec">バス特典チケットの計算方法(関東バスHP)</a></p>
-          <p>・<a href="https://www.kanto-bus.co.jp/regular/pass.html">定期券について(関東バスHP)</a></p>
+          <p>・<a href="https://www.kanto-bus.co.jp/regular/pasmo.html#pointSec" target=”_blank”>バス特典チケットの計算方法(関東バスHP)</a></p>
+          <p>・<a href="https://www.kanto-bus.co.jp/regular/pass.html" target=”_blank”>定期券について(関東バスHP)</a></p>
+          <p>・<a href="https://twitter.com/dll7" target=”_blank”>作者のTwitter(@dll7)</a></p>
+          <p>・<a href="https://github.com/ky0615/kanto-bus-bustok" target=”_blank”>ソースコード</a></p>
         </div>
       </div>
 
