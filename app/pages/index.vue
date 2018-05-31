@@ -3,7 +3,7 @@
   <header class="navbar topNav">
     <div class="container">
       <div class="navbar-brand">
-        <a href="/" class="navbar-item">
+        <a href="./" class="navbar-item">
           <h1 class="title is-8">関東バスのPASMOバス特典チケットを計算するやつ</h1>
         </a>
       </div>

@@ -8,7 +8,7 @@ provider:
   runtime: nodejs8.10
   region: ap-northeast-1
   stage: ${self:custom.STAGE}
-  profile: my   # awsのcredential名 複数持っていないなら記述不要
+  profile:   # awsのcredential名 複数持っていないなら記述不要
 
 custom:
   NAME: nuxt-on-lambda
@@ -36,6 +36,8 @@ package:
     - node_modules/yargs/**
     - node_modules/postcss**/**
     - node_modules/cssnano/**
+    - node_modules/sass-loader//**
+    - node_modules/node-sass/**
     - node_modules/xxhashjs/**
     - node_modules/jschardet/**
     - node_modules/**/*.md
